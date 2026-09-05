@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalFix — Local Service Finder</title>
+    <!-- Modern Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   <!--Lucide Icons --> 
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        
+        <div class="container nav-container">
+            <div class="logo" onclick="app.navigate('home')">
+                <i data-lucide="tool"></i> LocalFix
+            </div>
+            
+            <!-- Desktop Nav -->
+            <nav class="nav-links">
+                <a href="#" onclick="app.navigate('home')">Home</a>
+                <a href="#" onclick="app.navigate('search')">Find Services</a>
+                <a href="#about-project">How It Works</a>
+                <a href="#" onclick="app.navigate('provider-onboarding')">Become a Provider</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="btn btn-outline" id="nav-login-btn" onclick="app.navigate('login')">Login</button>
+                <button class="btn btn-primary" onclick="app.navigate('search')">Find a Service</button>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button class="mobile-menu-btn" onclick="app.toggleMobileMenu()">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <!-- Mobile Dropdown -->
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="#" onclick="app.navigate('home'); app.toggleMobileMenu()">Home</a>
+            <a href="#" onclick="app.navigate('search'); app.toggleMobileMenu()">Find Services</a>
+            <a href="#" onclick="app.navigate('provider-onboarding'); app.toggleMobileMenu()">Become a Provider</a>
+            <a href="#" onclick="app.navigate('login'); app.toggleMobileMenu()">Login</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area (SPA Views) -->
+    <main id="app-root">
+        
+        <!-- ================= HOME VIEW ================= -->
+        <section id="view-home" class="view active">
+            <!-- Hero Section -->
+            <div class="hero">
+                <div class="container hero-container">
+                    <div class="hero-content">
+                        <h1>Reliable help, right around the corner.</h1>
+                        <p>Find trusted local professionals for everyday jobs — quickly, safely, and easily.</p>
+                        
+                        <div class="search-box">
+                            <div class="input-group">
+                                <i data-lucide="search"></i>
+                                <select id="hero-service">
+                                    <option value="">What service do you need?</option>
+                                    <option value="Electrician">Electrician</option>
+                                    <option value="Plumber">Plumber</option>
+                                    <option value="Mechanic">Mechanic</option>
+                                    <option value="Carpenter">Carpenter</option>
+                                    <option value="Cleaning">Cleaning</option>
+                                    <option value="AC Repair">AC Repair</option>
+                                    <option value="Tutor">Tutor</option>
+                                </select>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="input-group">
+                                <i data-lucide="map-pin"></i>
+                                <input type="text" id="hero-location" placeholder="City or locality">
+                                <button class="icon-btn" title="Use current location" onclick="app.useCurrentLocation('hero-location')"><i data-lucide="navigation"></i></button>
+                            </div>
+                            <button class="btn btn-primary search-btn" onclick="app.executeSearch()">Find Professionals</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categories -->
+            <div class="container section">
+                <h2 class="section-title">Explore Popular Services</h2>
+                <div class="category-grid" id="home-categories">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- About Project (College Requirement) -->
+            <div class="container section" id="about-project">
+                <div class="about-card">
+                    <h2><i data-lucide="info"></i> About This Project</h2>
+                    <div class="about-grid">
+                        <div>
+                            <h3>The Problem</h3>
+                            <p>Finding reliable local service providers can be difficult, unsafe, and time-consuming. People often rely on unverified word-of-mouth.</p>
+                        </div>
+                        <div>
+                            <h3>Our Solution</h3>
+                            <p>LocalFix provides a simple platform for discovering, comparing, and requesting verified local professionals with a few clicks.</p>
+                        </div>
+                        <div>
+                            <h3>Key Benefits</h3>
+                            <ul>
+                                <li>Saves time & Easy comparison</li>
+                                <li>Improves discoverability for local workers</li>
+                                <li>Provides ratings, reviews, and verification</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SEARCH RESULTS VIEW ================= -->
+        <section id="view-search" class="view container section">
+            <div class="search-header">
+                <h2 id="search-title">Professionals near you</h2>
+                <div class="search-filters-top">
+                    <select id="sort-select" onchange="app.renderSearchResults()">
+                        <option value="rating">Sort by: Top Rated</option>
+                        <option value="distance">Sort by: Closest</option>
+                        <option value="price">Sort by: Lowest Price</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="search-layout">
+                <aside class="filters-sidebar">
+                    <h3>Filters</h3>
+                    <div class="filter-group">
+                        <label><input type="checkbox" id="filter-verified" onchange="app.renderSearchResults()"> Verified Providers Only</label>
+                    </div>
+                    <div class="filter-group">
+                        <label>Max Distance (km)</label>
+                        <input type="range" id="filter-distance" min="1" max="50" value="20" onchange="document.getElementById('dist-val').innerText=this.value+'km'; app.renderSearchResults()">
+                        <span id="dist-val">20km</span>
+                    </div>
+                    <div class="filter-group">
+                        <label>Minimum Rating</label>
+                        <select id="filter-rating" onchange="app.renderSearchResults()">
+                            <option value="0">Any Rating</option>
+                            <option value="4">4+ Stars</option>
+                            <option value="4.5">4.5+ Stars</option>
+                        </select>
+                    </div>
+                </aside>
+                
+                <div class="results-grid" id="search-results-container">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PROVIDER PROFILE VIEW ================= -->
+        <section id="view-profile" class="view container section">
+            <button class="btn btn-outline mb-4" onclick="app.navigate('search')"><i data-lucide="arrow-left"></i> Back to Results</button>
+            <div id="profile-container">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <!-- ================= USER DASHBOARD VIEW ================= -->
+        <section id="view-dashboard" class="view container section">
+            <h2>Welcome back, <span id="dash-user-name">User</span></h2>
+            <div class="dash-grid mt-4">
+                <div class="dash-card">
+                    <h3>Active Requests</h3>
+                    <div id="dash-active-requests">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+                <div class="dash-card">
+                    <h3>Safety & Trust Center</h3>
+                    <ul class="trust-list">
+                        <li><i data-lucide="shield-check"></i> All providers are verified</li>
+                        <li><i data-lucide="lock"></i> Secure communication</li>
+                        <li><i data-lucide="alert-triangle"></i> Report an issue</li>
+                    </ul>
+                    <p class="text-small text-muted mt-2">LocalFix helps discover providers. Always verify identity before allowing access to property.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= LOGIN / SIGNUP VIEW ================= -->
+        <section id="view-login" class="view container section">
+            <div class="auth-container">
+                <h2>Welcome to LocalFix</h2>
+                <div class="auth-tabs">
+                    <button class="tab active" onclick="app.switchAuthTab('customer')">Customer</button>
+                    <button class="tab" onclick="app.switchAuthTab('provider')">Provider</button>
+                </div>
+                <form id="login-form" onsubmit="app.handleLogin(event)">
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" required placeholder="demo@localfix.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Login (Demo)</button>
+                </form>
+                <p class="text-center mt-2 text-muted">Use any email/password for this demo.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>LocalFix</h3>
+                <p>This site is created by Aditya and his teammates Ziyan and  Ashwini 🙌</p>
+            </div>
+            <div class="footer-col">
+                <h4>Platform</h4>
+                <a href="#">Find a Service</a>
+                <a href="#">Become a Provider</a>
+                <a href="#">Trust & Safety</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+        <br>
+   <div style="text-align: center;">
+
+       <p class="copyright">
+           © 2026 LocalFix. All Rights Reserved. Created and Owned by Aditya, Ashwini & Ziyan.
+        </p>
+    </div>     
+
+
+        <br>
+        
+        <div class="footer-credit" style="text-align: center;">
+    Made with ❤️ and ☕ in India
+</div>
+    </footer>
+
+    <!-- ================= MODALS & TOASTS ================= -->
+    
+    <!-- Booking Multi-step Modal -->
+    <div class="modal-overlay" id="booking-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="booking-title">Request Service</h3>
+                <button class="icon-btn" onclick="app.closeModal('booking-modal')"><i data-lucide="x"></i></button>
+            </div>
+            <div class="modal-body">
+                <!-- Step 1: Time -->
+                <div class="booking-step active" id="step-1">
+                    <h4>Step 1: When do you need this?</h4>
+                    <input type="date" id="book-date" class="modal-input mt-2">
+                    <select id="book-time" class="modal-input mt-2">
+                        <option>Morning (8 AM - 12 PM)</option>
+                        <option>Afternoon (12 PM - 4 PM)</option>
+                        <option>Evening (4 PM - 8 PM)</option>
+                    </select>
+                </div>
+                <!-- Step 2: Details -->
+                <div class="booking-step" id="step-2">
+                    <h4>Step 2: Describe the problem</h4>
+                    <textarea id="book-desc" class="modal-input mt-2" rows="4" placeholder="E.g., Kitchen sink is leaking rapidly..."></textarea>
+                    <input type="text" id="book-address" class="modal-input mt-2" placeholder="Full Address">
+                </div>
+                <!-- Step 3: Confirm -->
+                <div class="booking-step" id="step-3">
+                    <h4>Step 3: Review & Confirm</h4>
+                    <div class="review-box mt-2">
+                        <p><strong>Provider:</strong> <span id="review-provider"></span></p>
+                        <p><strong>Date:</strong> <span id="review-date"></span></p>
+                        <p><strong>Address:</strong> <span id="review-address"></span></p>
+                    </div>
+                </div>
+                <!-- Success -->
+                <div class="booking-step text-center" id="step-success">
+                    <i data-lucide="check-circle" class="success-icon"></i>
+                    <h4>Request Submitted!</h4>
+                    <p class="text-muted">Your request ID is <strong id="req-id"></strong>. You can track this in your dashboard.</p>
+                </div>
+            </div>
+            <div class="modal-footer" id="modal-footer">
+                <button class="btn btn-outline" id="btn-prev" onclick="app.bookingPrev()">Back</button>
+                <button class="btn btn-primary" id="btn-next" onclick="app.bookingNext()">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container"></div>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js"></script>
+</body>
+</html>
