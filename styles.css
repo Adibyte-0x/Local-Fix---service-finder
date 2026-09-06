@@ -208,6 +208,27 @@ textarea:focus {
     border-bottom: 1px solid #eeeeee;
     box-sizing: border-box;
 }
+@media (max-width: 600px) {
+    .header-left {
+        padding: 8px 12px;
+        gap: 10px;
+    }
+
+    .emblem {
+        width: 48px;
+        height: 48px;
+    }
+
+    .college-name {
+        font-size: 15px;
+        line-height: 1.2;
+    }
+
+    .college-tagline {
+        font-size: 8px;
+        line-height: 1.3;
+    }
+}
 
 
 .logo {
