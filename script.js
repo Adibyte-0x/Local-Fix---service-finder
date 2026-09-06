@@ -11,27 +11,51 @@ function googleTranslateElementInit() {
     );
 }
 
-function translateSite() {
+function translateSite(selectElement) {
 
-    const language = document.getElementById("languageSelect").value;
+    // Get selected language from whichever dropdown was changed
+    const language = selectElement.value;
 
     if (!language) {
         return;
     }
 
     const translator = document.querySelector(".goog-te-combo");
-if (!translator) {
-    alert("⚠️ Translation unavailable. Your browser may be blocking Google Translate. Please disable Shields or try another browser.");
-    return;
-}
+
     if (!translator) {
         console.log("Google Translate has not loaded yet.");
+
+        // Wait for Google Translate to load
+        setTimeout(() => {
+            const retryTranslator = document.querySelector(".goog-te-combo");
+
+            if (!retryTranslator) {
+                alert("⚠️ Google Translate is not available. Please refresh the page.");
+                return;
+            }
+
+            retryTranslator.value = language;
+            retryTranslator.dispatchEvent(new Event("change"));
+        }, 1000);
+
         return;
     }
 
+    // Tell Google Translate to change language
     translator.value = language;
-
     translator.dispatchEvent(new Event("change"));
+
+    // Keep both dropdowns synchronized
+    const desktopSelect = document.getElementById("languageSelect");
+    const mobileSelect = document.getElementById("languageSelectMobile");
+
+    if (desktopSelect) {
+        desktopSelect.value = language;
+    }
+
+    if (mobileSelect) {
+        mobileSelect.value = language;
+    }
 }
 /* ================= MOCK DATA (Simulating Database) ================= */
 const mockServices = [
