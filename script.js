@@ -1,4 +1,38 @@
+// ================= GOOGLE TRANSLATOR =================
 
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+        {
+            pageLanguage: "en",
+            includedLanguages: "en,hi,mr,gu,bn,ta,te,kn,ml,pa",
+            autoDisplay: false
+        },
+        "google_translate_element"
+    );
+}
+
+function translateSite() {
+
+    const language = document.getElementById("languageSelect").value;
+
+    if (!language) {
+        return;
+    }
+
+    const translator = document.querySelector(".goog-te-combo");
+if (!translator) {
+    alert("⚠️ Translation unavailable. Your browser may be blocking Google Translate. Please disable Shields or try another browser.");
+    return;
+}
+    if (!translator) {
+        console.log("Google Translate has not loaded yet.");
+        return;
+    }
+
+    translator.value = language;
+
+    translator.dispatchEvent(new Event("change"));
+}
 /* ================= MOCK DATA (Simulating Database) ================= */
 const mockServices = [
     { id: 'electrician', name: 'Electrician', icon: 'zap', desc: 'Wiring, repairs, and installations.' },
