@@ -64,7 +64,23 @@
             </button>
         </div>
         <!-- Mobile Dropdown -->
-        <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu" id="mobile-menu"> <select
+    class="language-select"
+    id="languageSelect"
+    onchange="translateSite()">
+    <option value="">🌐 Language</option>
+    <option value="en">English</option>
+    <option value="hi">Hindi</option>
+    <option value="mr">Marathi</option>
+    <option value="gu">Gujarati</option>
+    <option value="bn">Bengali</option>
+    <option value="ta">Tamil</option>
+    <option value="te">Telugu</option>
+    <option value="kn">Kannada</option>
+    <option value="ml">Malayalam</option>
+    <option value="pa">Punjabi</option>
+</select>
+            
             <a href="#" onclick="app.navigate('home'); app.toggleMobileMenu()">Home</a>
             <a href="#" onclick="app.navigate('search'); app.toggleMobileMenu()">Find Services</a>
             <a href="#" onclick="app.navigate('provider-onboarding'); app.toggleMobileMenu()">Become a Provider</a>
