@@ -13,6 +13,14 @@
 <body>
     <!-- Navbar -->
     <header class="navbar">
+        <div class="header-left">
+                <img src="https://mis.gcoej.ac.in/images/logo.png" alt="College Logo" class="emblem" width="70" height="70">
+                <div class="college-info">
+                    <h1 class="college-name">Government College of Engineering, Jalgaon</h1>
+                    <p class="college-tagline">An Autonomous Institute of Govt. of Maharashtra | NAAC Accredited | NBA Accredited</p>
+                </div>
+            </div>
+        
         
         <div class="container nav-container">
             <div class="logo" onclick="app.navigate('home')">
@@ -28,6 +36,24 @@
             </nav>
 
             <div class="nav-actions">
+                <div class="language-selector">
+    <select
+    class="language-select"
+    id="languageSelect"
+    onchange="translateSite()">
+    <option value="">🌐 Language</option>
+    <option value="en">English</option>
+    <option value="hi">Hindi</option>
+    <option value="mr">Marathi</option>
+    <option value="gu">Gujarati</option>
+    <option value="bn">Bengali</option>
+    <option value="ta">Tamil</option>
+    <option value="te">Telugu</option>
+    <option value="kn">Kannada</option>
+    <option value="ml">Malayalam</option>
+    <option value="pa">Punjabi</option>
+</select>
+</div>
                 <button class="btn btn-outline" id="nav-login-btn" onclick="app.navigate('login')">Login</button>
                 <button class="btn btn-primary" onclick="app.navigate('search')">Find a Service</button>
             </div>
@@ -44,6 +70,7 @@
             <a href="#" onclick="app.navigate('provider-onboarding'); app.toggleMobileMenu()">Become a Provider</a>
             <a href="#" onclick="app.navigate('login'); app.toggleMobileMenu()">Login</a>
         </div>
+        
     </header>
 
     <!-- Main Content Area (SPA Views) -->
@@ -299,7 +326,15 @@
 
     <!-- Toast Notification Container -->
     <div id="toast-container"></div>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="script.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<!-- Google Translate container -->
+<div id="google_translate_element"></div>
+
+<!-- Google Translate -->
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Your JavaScript -->
+<script src="script.js"></script>
 </body>
 </html>
