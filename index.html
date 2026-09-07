@@ -36,22 +36,22 @@
             </nav>
 
             <div class="nav-actions">
-                <div class="language-selector">
+                <div class="language-selector notranslate" translate="no">
     <select
-    class="language-select"
+    class="language-selector notranslate"
     id="languageSelect"
     onchange="translateSite(this)">
-    <option value="">🌐 Language</option>
-    <option value="en">English</option>
-    <option value="hi">Hindi</option>
-    <option value="mr">Marathi</option>
-    <option value="gu">Gujarati</option>
-    <option value="bn">Bengali</option>
-    <option value="ta">Tamil</option>
-    <option value="te">Telugu</option>
-    <option value="kn">Kannada</option>
-    <option value="ml">Malayalam</option>
-    <option value="pa">Punjabi</option>
+    <option value="" class="notranslate" translate="no">🌐 Language</option>
+    <option value="en" class="notranslate" translate="no">English</option>
+    <option value="hi" class="notranslate" translate="no">Hindi</option>
+    <option value="mr" class="notranslate" translate="no">Marathi</option>
+    <option value="gu" class="notranslate" translate="no">Gujarati</option>
+    <option value="bn" class="notranslate" translate="no">Bengali</option>
+    <option value="ta" class="notranslate" translate="no">Tamil</option>
+    <option value="te" class="notranslate" translate="no">Telugu</option>
+    <option value="kn" class="notranslate" translate="no">Kannada</option>
+    <option value="ml" class="notranslate" translate="no">Malayalam</option>
+    <option value="pa" class="notranslate" translate="no">Punjabi</option>
 </select>
 </div>
                 <button class="btn btn-outline" id="nav-login-btn" onclick="app.navigate('login')">Login</button>
@@ -64,23 +64,23 @@
             </button>
         </div>
         <!-- Mobile Dropdown -->
-        <div class="mobile-menu" id="mobile-menu"> <select
-    class="language-select"
-    id="mobileLanguageSelect"
+        <div class="mobile-menu" id="mobile-menu">
+             <select
+    class="language-selector notranslate"
+    id="languageSelectMobile"
     onchange="translateSite(this)">
-    <option value="">🌐 Language</option>
-    <option value="en">English</option>
-    <option value="hi">Hindi</option>
-    <option value="mr">Marathi</option>
-    <option value="gu">Gujarati</option>
-    <option value="bn">Bengali</option>
-    <option value="ta">Tamil</option>
-    <option value="te">Telugu</option>
-    <option value="kn">Kannada</option>
-    <option value="ml">Malayalam</option>
-    <option value="pa">Punjabi</option>
+     <option value="" class="notranslate" translate="no">🌐 Language</option>
+    <option value="en" class="notranslate" translate="no">English</option>
+    <option value="hi" class="notranslate" translate="no">Hindi</option>
+    <option value="mr" class="notranslate" translate="no">Marathi</option>
+    <option value="gu" class="notranslate" translate="no">Gujarati</option>
+    <option value="bn" class="notranslate" translate="no">Bengali</option>
+    <option value="ta" class="notranslate" translate="no">Tamil</option>
+    <option value="te" class="notranslate" translate="no">Telugu</option>
+    <option value="kn" class="notranslate" translate="no">Kannada</option>
+    <option value="ml" class="notranslate" translate="no">Malayalam</option>
+    <option value="pa" class="notranslate" translate="no">Punjabi</option>
 </select>
-            
             <a href="#" onclick="app.navigate('home'); app.toggleMobileMenu()">Home</a>
             <a href="#" onclick="app.navigate('search'); app.toggleMobileMenu()">Find Services</a>
             <a href="#" onclick="app.navigate('provider-onboarding'); app.toggleMobileMenu()">Become a Provider</a>
