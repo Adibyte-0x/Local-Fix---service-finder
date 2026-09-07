@@ -4,7 +4,7 @@ function googleTranslateElementInit() {
     new google.translate.TranslateElement(
         {
             pageLanguage: "en",
-            includedLanguages: "en,hi,mr,gu,bn,ta,te,kn,ml,pa,ur,es,ja",
+            includedLanguages: "sa,en,hi,mr,gu,bn,ta,te,kn,ml,pa,ur,es,ja",
             autoDisplay: false
         },
         "google_translate_element"
