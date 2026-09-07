@@ -24,7 +24,7 @@
         
         <div class="container nav-container">
             <div class="logo" onclick="app.navigate('home')">
-                <i data-lucide="tool"></i> LocalFix
+                <i data-lucide="wrench"></i> LocalFix
             </div>
             
             <!-- Desktop Nav -->
@@ -37,28 +37,30 @@
 
             <div class="nav-actions">
                 <div class="language-selector notranslate" translate="no">
-    <select
-    class="language-selector notranslate"
-    id="languageSelect"
-    onchange="translateSite(this)">
-    <option value="" class="notranslate" translate="no">🌐 Language</option>
-    <option value="en" class="notranslate" translate="no">English</option>
-    <option value="hi" class="notranslate" translate="no">Hindi</option>
-    <option value="mr" class="notranslate" translate="no">Marathi</option>
-    <option value="gu" class="notranslate" translate="no">Gujarati</option>
-    <option value="bn" class="notranslate" translate="no">Bengali</option>
-    <option value="ta" class="notranslate" translate="no">Tamil</option>
-    <option value="te" class="notranslate" translate="no">Telugu</option>
-    <option value="kn" class="notranslate" translate="no">Kannada</option>
-    <option value="ml" class="notranslate" translate="no">Malayalam</option>
-    <option value="pa" class="notranslate" translate="no">Punjabi</option>
-         <option value="ur" class="notranslate" translate="no">Urdu</option>
+                    <select
+                    class="language-selector notranslate"
+                    id="languageSelect"
+                    onchange="translateSite(this)">
+                    <option value="" class="notranslate" translate="no">🌐 Language</option>
+                    <option value="en" class="notranslate" translate="no">English</option>
+                    <option value="hi" class="notranslate" translate="no">Hindi</option>
+                    <option value="mr" class="notranslate" translate="no">Marathi</option>
+                    <option value="gu" class="notranslate" translate="no">Gujarati</option>
+                    <option value="bn" class="notranslate" translate="no">Bengali</option>
+                    <option value="ta" class="notranslate" translate="no">Tamil</option>
+                    <option value="te" class="notranslate" translate="no">Telugu</option>
+                    <option value="kn" class="notranslate" translate="no">Kannada</option>
+                    <option value="ml" class="notranslate" translate="no">Malayalam</option>
+                    <option value="pa" class="notranslate" translate="no">Punjabi</option>
+                    <option value="ur" class="notranslate" translate="no">Urdu</option>
+                    <option value="es" class="notranslate" translate="no">Spanish</option>
+                    <option value="ja" class="notranslate" translate="no">Japanese</option>
 </select>
 </div>
                 <button class="btn btn-outline" id="nav-login-btn" onclick="app.navigate('login')">Login</button>
                 <button class="btn btn-primary" onclick="app.navigate('search')">Find a Service</button>
             </div>
-
+            
             <!-- Mobile Hamburger -->
             <button class="mobile-menu-btn" onclick="app.toggleMobileMenu()">
                 <i data-lucide="menu"></i>
@@ -66,44 +68,46 @@
         </div>
         <!-- Mobile Dropdown -->
         <div class="mobile-menu" id="mobile-menu">
-             <select
-    class="language-selector notranslate"
-    id="languageSelectMobile"
-    onchange="translateSite(this)">
-     <option value="" class="notranslate" translate="no">🌐 Language</option>
-    <option value="en" class="notranslate" translate="no">English</option>
-    <option value="hi" class="notranslate" translate="no">Hindi</option>
-    <option value="mr" class="notranslate" translate="no">Marathi</option>
-    <option value="gu" class="notranslate" translate="no">Gujarati</option>
-    <option value="bn" class="notranslate" translate="no">Bengali</option>
-    <option value="ta" class="notranslate" translate="no">Tamil</option>
-    <option value="te" class="notranslate" translate="no">Telugu</option>
-    <option value="kn" class="notranslate" translate="no">Kannada</option>
-    <option value="ml" class="notranslate" translate="no">Malayalam</option>
+            <select
+            class="language-selector notranslate"
+            id="languageSelectMobile"
+            onchange="translateSite(this)">
+            <option value="" class="notranslate" translate="no">🌐 Language</option>
+            <option value="en" class="notranslate" translate="no">English</option>
+            <option value="hi" class="notranslate" translate="no">Hindi</option>
+            <option value="mr" class="notranslate" translate="no">Marathi</option>
+            <option value="gu" class="notranslate" translate="no">Gujarati</option>
+            <option value="bn" class="notranslate" translate="no">Bengali</option>
+            <option value="ta" class="notranslate" translate="no">Tamil</option>
+            <option value="te" class="notranslate" translate="no">Telugu</option>
+            <option value="kn" class="notranslate" translate="no">Kannada</option>
+            <option value="ml" class="notranslate" translate="no">Malayalam</option>
     <option value="pa" class="notranslate" translate="no">Punjabi</option>
-                  <option value="ur" class="notranslate" translate="no">Urdu</option>
+    <option value="ur" class="notranslate" translate="no">Urdu</option>
+    <option value="es" class="notranslate" translate="no">Spanish</option>
+    <option value="ja" class="notranslate" translate="no">Japanese</option>
 </select>
-            <a href="#" onclick="app.navigate('home'); app.toggleMobileMenu()">Home</a>
-            <a href="#" onclick="app.navigate('search'); app.toggleMobileMenu()">Find Services</a>
-            <a href="#" onclick="app.navigate('provider-onboarding'); app.toggleMobileMenu()">Become a Provider</a>
-            <a href="#" onclick="app.navigate('login'); app.toggleMobileMenu()">Login</a>
-        </div>
-        
-    </header>
+<a href="#" onclick="app.navigate('home'); app.toggleMobileMenu()">Home</a>
+<a href="#" onclick="app.navigate('search'); app.toggleMobileMenu()">Find Services</a>
+<a href="#" onclick="app.navigate('provider-onboarding'); app.toggleMobileMenu()">Become a Provider</a>
+<a href="#" onclick="app.navigate('login'); app.toggleMobileMenu()">Login</a>
+</div>
 
-    <!-- Main Content Area (SPA Views) -->
-    <main id="app-root">
-        
-        <!-- ================= HOME VIEW ================= -->
-        <section id="view-home" class="view active">
-            <!-- Hero Section -->
-            <div class="hero">
-                <div class="container hero-container">
-                    <div class="hero-content">
-                        <h1>Reliable help, right around the corner.</h1>
-                        <p>Find trusted local professionals for everyday jobs — quickly, safely, and easily.</p>
-                        
-                        <div class="search-box">
+</header>
+
+<!-- Main Content Area (SPA Views) -->
+<main id="app-root">
+    
+    <!-- ================= HOME VIEW ================= -->
+    <section id="view-home" class="view active">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h1>Reliable help, right around the corner.</h1>
+                    <p>Find trusted local professionals for everyday jobs — quickly, safely, and easily.</p>
+                    
+                    <div class="search-box">
                             <div class="input-group">
                                 <i data-lucide="search"></i>
                                 <select id="hero-service">
@@ -112,8 +116,8 @@
                                     <option value="Plumber">Plumber</option>
                                     <option value="Mechanic">Mechanic</option>
                                     <option value="Carpenter">Carpenter</option>
-                                    <option value="Cleaning">Cleaning</option>
                                     <option value="AC Repair">AC Repair</option>
+                                    <option value="Cleaning">Cleaning</option>
                                     <option value="Tutor">Tutor</option>
                                 </select>
                             </div>
@@ -263,7 +267,7 @@
         <div class="container footer-container">
             <div class="footer-col">
                 <h3>LocalFix</h3>
-                <p>This site is created by Aditya and his teammates Ziyan and  Ashwini 🙌</p>
+                <p>This site is created by Aditya and his teammates Ziyan and  Ashwini </p>
             </div>
             <div class="footer-col">
                 <h4>Platform</h4>
@@ -356,3 +360,4 @@
 <script src="script.js"></script>
 </body>
 </html>
+
