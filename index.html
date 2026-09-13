@@ -1,68 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LocalFix — Local Service Finder</title>
     <!-- Modern Typography -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-   <!--Lucide Icons --> 
-    
+    <!--Lucide Icons -->
+
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <!-- Navbar -->
     <header class="navbar">
         <div class="header-left">
-                <img src="https://mis.gcoej.ac.in/images/logo.png" alt="College Logo" class="emblem" width="70" height="70">
-                <div class="college-info">
-                    <h1 class="college-name">Government College of Engineering, Jalgaon</h1>
-                    <p class="college-tagline">An Autonomous Institute of Govt. of Maharashtra | NAAC Accredited | NBA Accredited</p>
-                </div>
+            <img src="https://mis.gcoej.ac.in/images/logo.png" alt="College Logo" class="emblem" width="70" height="70">
+            <div class="college-info">
+                <h1 class="college-name">Government College of Engineering, Jalgaon</h1>
+                <p class="college-tagline">An Autonomous Institute of Govt. of Maharashtra | NAAC Accredited | NBA
+                    Accredited</p>
             </div>
-        
-        
+        </div>
+
+
         <div class="container nav-container">
             <div class="logo" onclick="app.navigate('home')">
-                <i data-lucide="handshake"></i> LocalFix
+                <i data-lucide="wrench"></i> LocalFix
             </div>
-            
+
             <!-- Desktop Nav -->
             <nav class="nav-links">
                 <a href="#" onclick="app.navigate('home')">Home</a>
                 <a href="#" onclick="app.navigate('search')">Find Services</a>
-                <a href="#about-project">How It Works</a>
+                <a href="#how-it-works">How It Works</a>
                 <a href="#" onclick="app.navigate('provider-onboarding')">Become a Provider</a>
             </nav>
 
             <div class="nav-actions">
                 <div class="language-selector notranslate" translate="no">
-                    <select
-                    class="language-selector notranslate"
-                    id="languageSelect"
-                    onchange="translateSite(this)">
-                    <option value="" class="notranslate" translate="no" selected disabled>🌐 Language</option>
-                    <option value="en" class="notranslate" translate="no">English</option>
-                    <option value="sa" class="notranslate" translate="no">Sanskrit</option>
-                    <option value="hi" class="notranslate" translate="no">Hindi</option>
-                    <option value="mr" class="notranslate" translate="no">Marathi</option>
-                    <option value="gu" class="notranslate" translate="no">Gujarati</option>
-                    <option value="bn" class="notranslate" translate="no">Bengali</option>
-                    <option value="ta" class="notranslate" translate="no">Tamil</option>
-                    <option value="te" class="notranslate" translate="no">Telugu</option>
-                    <option value="kn" class="notranslate" translate="no">Kannada</option>
-                    <option value="ml" class="notranslate" translate="no">Malayalam</option>
-                    <option value="pa" class="notranslate" translate="no">Punjabi</option>
-                    <option value="ur" class="notranslate" translate="no">Urdu</option>
-                    <option value="es" class="notranslate" translate="no">Spanish</option>
-                    <option value="ja" class="notranslate" translate="no">Japanese</option>
-                         <option value="ar" class="notranslate" translate="no">Arabic</option>
-</select>
-</div>
+                    <select class="language-selector notranslate" id="languageSelect" onchange="translateSite(this)">
+                        <option value="" class="notranslate" translate="no" selected disabled>🌐 Language</option>
+                        <option value="en" class="notranslate" translate="no">English</option>
+                        <option value="hi" class="notranslate" translate="no">Hindi</option>
+                        <option value="mr" class="notranslate" translate="no">Marathi</option>
+                        <option value="gu" class="notranslate" translate="no">Gujarati</option>
+                        <option value="bn" class="notranslate" translate="no">Bengali</option>
+                        <option value="ta" class="notranslate" translate="no">Tamil</option>
+                        <option value="te" class="notranslate" translate="no">Telugu</option>
+                        <option value="kn" class="notranslate" translate="no">Kannada</option>
+                        <option value="ml" class="notranslate" translate="no">Malayalam</option>
+                        <option value="pa" class="notranslate" translate="no">Punjabi</option>
+                        <option value="ur" class="notranslate" translate="no">Urdu</option>
+                        <option value="es" class="notranslate" translate="no">Spanish</option>
+                        <option value="ja" class="notranslate" translate="no">Japanese</option>
+                    </select>
+                </div>
                 <button class="btn btn-outline" id="nav-login-btn" onclick="app.navigate('login')">Login</button>
                 <button class="btn btn-primary" onclick="app.navigate('search')">Find a Service</button>
+                <button class="btn btn-outline" id="nav-logout-btn" style="display:none"
+                    onclick="app.logout()">Logout</button>
             </div>
-            
+
             <!-- Mobile Hamburger -->
             <button class="mobile-menu-btn" onclick="app.toggleMobileMenu()">
                 <i data-lucide="menu"></i>
@@ -70,48 +70,45 @@
         </div>
         <!-- Mobile Dropdown -->
         <div class="mobile-menu" id="mobile-menu">
-            <select
-            class="language-selector notranslate"
-            id="languageSelectMobile"
-            onchange="translateSite(this)">
-            <option value="" class="notranslate" translate="no" selected disabled>🌐 Language</option>
-            <option value="en" class="notranslate" translate="no">English</option>
-                    <option value="sa" class="notranslate" translate="no">Sanskrit</option>
-            <option value="hi" class="notranslate" translate="no">Hindi</option>
-            <option value="mr" class="notranslate" translate="no">Marathi</option>
-            <option value="gu" class="notranslate" translate="no">Gujarati</option>
-            <option value="bn" class="notranslate" translate="no">Bengali</option>
-            <option value="ta" class="notranslate" translate="no">Tamil</option>
-            <option value="te" class="notranslate" translate="no">Telugu</option>
-            <option value="kn" class="notranslate" translate="no">Kannada</option>
-            <option value="ml" class="notranslate" translate="no">Malayalam</option>
-    <option value="pa" class="notranslate" translate="no">Punjabi</option>
-    <option value="ur" class="notranslate" translate="no">Urdu</option>
-    <option value="es" class="notranslate" translate="no">Spanish</option>
-    <option value="ja" class="notranslate" translate="no">Japanese</option>
-                 <option value="ar" class="notranslate" translate="no">Arabic</option>
-</select>
-<a href="#" onclick="app.navigate('home'); app.toggleMobileMenu()">Home</a>
-<a href="#" onclick="app.navigate('search'); app.toggleMobileMenu()">Find Services</a>
-<a href="#" onclick="app.navigate('provider-onboarding'); app.toggleMobileMenu()">Become a Provider</a>
-<a href="#" onclick="app.navigate('login'); app.toggleMobileMenu()">Login</a>
-</div>
+            <select class="language-selector notranslate" id="languageSelectMobile" onchange="translateSite(this)">
+                <option value="" class="notranslate" translate="no">🌐 Language</option>
+                <option value="en" class="notranslate" translate="no">English</option>
+                <option value="hi" class="notranslate" translate="no">Hindi</option>
+                <option value="mr" class="notranslate" translate="no">Marathi</option>
+                <option value="gu" class="notranslate" translate="no">Gujarati</option>
+                <option value="bn" class="notranslate" translate="no">Bengali</option>
+                <option value="ta" class="notranslate" translate="no">Tamil</option>
+                <option value="te" class="notranslate" translate="no">Telugu</option>
+                <option value="kn" class="notranslate" translate="no">Kannada</option>
+                <option value="ml" class="notranslate" translate="no">Malayalam</option>
+                <option value="pa" class="notranslate" translate="no">Punjabi</option>
+                <option value="ur" class="notranslate" translate="no">Urdu</option>
+                <option value="es" class="notranslate" translate="no">Spanish</option>
+                <option value="ja" class="notranslate" translate="no">Japanese</option>
+            </select>
+            <a href="#" onclick="app.navigate('home'); app.toggleMobileMenu()">Home</a>
+            <a href="#" onclick="app.navigate('search'); app.toggleMobileMenu()">Find Services</a>
+            <a href="#" onclick="app.navigate('provider-onboarding'); app.toggleMobileMenu()">Become a Provider</a>
+            <a href="#" id="mobile-login-link" onclick="app.navigate('login'); app.toggleMobileMenu()">Login</a>
+            <a href="#" id="mobile-logout-link" style="display:none"
+                onclick="app.logout(); app.toggleMobileMenu()">Logout</a>
+        </div>
 
-</header>
+    </header>
 
-<!-- Main Content Area (SPA Views) -->
-<main id="app-root">
-    
-    <!-- ================= HOME VIEW ================= -->
-    <section id="view-home" class="view active">
-        <!-- Hero Section -->
-        <div class="hero">
-            <div class="container hero-container">
-                <div class="hero-content">
-                    <h1>Reliable help, right around the corner.</h1>
-                    <p>Find trusted local professionals for everyday jobs — quickly, safely, and easily.</p>
-                    
-                    <div class="search-box">
+    <!-- Main Content Area (SPA Views) -->
+    <main id="app-root">
+
+        <!-- ================= HOME VIEW ================= -->
+        <section id="view-home" class="view active">
+            <!-- Hero Section -->
+            <div class="hero">
+                <div class="container hero-container">
+                    <div class="hero-content">
+                        <h1>Reliable help, right around the corner.</h1>
+                        <p>Find trusted local professionals for everyday jobs — quickly, safely, and easily.</p>
+
+                        <div class="search-box">
                             <div class="input-group">
                                 <i data-lucide="search"></i>
                                 <select id="hero-service">
@@ -129,13 +126,19 @@
                             <div class="input-group">
                                 <i data-lucide="map-pin"></i>
                                 <input type="text" id="hero-location" placeholder="City or locality">
-                                <button class="icon-btn" title="Use current location" onclick="app.useCurrentLocation('hero-location')"><i data-lucide="navigation"></i></button>
+                                <button class="icon-btn" title="Use current location"
+                                    onclick="app.useCurrentLocation('hero-location')"><i
+                                        data-lucide="navigation"></i></button>
                             </div>
-                            <button class="btn btn-primary search-btn" onclick="app.executeSearch()">Find Professionals</button>
+                            <button class="btn btn-primary search-btn" onclick="app.executeSearch()">Find
+                                Professionals</button>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Trust stats -->
+            <div class="container stats-strip" id="trust-stats"></div>
 
             <!-- Categories -->
             <div class="container section">
@@ -145,6 +148,8 @@
                 </div>
             </div>
 
+
+
             <!-- About Project (College Requirement) -->
             <div class="container section" id="about-project">
                 <div class="about-card">
@@ -152,11 +157,13 @@
                     <div class="about-grid">
                         <div>
                             <h3>The Problem</h3>
-                            <p>Finding reliable local service providers can be difficult, unsafe, and time-consuming. People often rely on unverified word-of-mouth.</p>
+                            <p>Finding reliable local service providers can be difficult, unsafe, and time-consuming.
+                                People often rely on unverified word-of-mouth.</p>
                         </div>
                         <div>
                             <h3>Our Solution</h3>
-                            <p>LocalFix provides a simple platform for discovering, comparing, and requesting verified local professionals with a few clicks.</p>
+                            <p>LocalFix provides a simple platform for discovering, comparing, and requesting verified
+                                local professionals with a few clicks.</p>
                         </div>
                         <div>
                             <h3>Key Benefits</h3>
@@ -174,7 +181,10 @@
         <!-- ================= SEARCH RESULTS VIEW ================= -->
         <section id="view-search" class="view container section">
             <div class="search-header">
-                <h2 id="search-title">Professionals near you</h2>
+                <div>
+                    <h2 id="search-title">Professionals near you</h2>
+                    <p class="text-small text-muted" id="result-count"></p>
+                </div>
                 <div class="search-filters-top">
                     <select id="sort-select" onchange="app.renderSearchResults()">
                         <option value="rating">Sort by: Top Rated</option>
@@ -183,17 +193,25 @@
                     </select>
                 </div>
             </div>
-            
+
             <div class="search-layout">
                 <aside class="filters-sidebar">
                     <h3>Filters</h3>
                     <div class="filter-group">
-                        <label><input type="checkbox" id="filter-verified" onchange="app.renderSearchResults()"> Verified Providers Only</label>
+                        <label><input type="checkbox" id="filter-verified" onchange="app.renderSearchResults()">
+                            Verified Providers Only</label>
                     </div>
                     <div class="filter-group">
                         <label>Max Distance (km)</label>
-                        <input type="range" id="filter-distance" min="1" max="50" value="20" onchange="document.getElementById('dist-val').innerText=this.value+'km'; app.renderSearchResults()">
+                        <input type="range" id="filter-distance" min="1" max="50" value="20"
+                            onchange="document.getElementById('dist-val').innerText=this.value+'km'; app.renderSearchResults()">
                         <span id="dist-val">20km</span>
+                    </div>
+                    <div class="filter-group">
+                        <label>Max hourly rate (&#8377;)</label>
+                        <input type="range" id="filter-price" min="50" max="3000" step="50" value="3000"
+                            oninput="document.getElementById('price-val').innerText='\u20b9'+this.value; app.renderSearchResults()">
+                        <span id="price-val">&#8377;3000</span>
                     </div>
                     <div class="filter-group">
                         <label>Minimum Rating</label>
@@ -204,7 +222,7 @@
                         </select>
                     </div>
                 </aside>
-                
+
                 <div class="results-grid" id="search-results-container">
                     <!-- Populated by JS -->
                 </div>
@@ -213,7 +231,8 @@
 
         <!-- ================= PROVIDER PROFILE VIEW ================= -->
         <section id="view-profile" class="view container section">
-            <button class="btn btn-outline mb-4" onclick="app.navigate('search')"><i data-lucide="arrow-left"></i> Back to Results</button>
+            <button class="btn btn-outline mb-4" onclick="app.navigate('search')"><i data-lucide="arrow-left"></i> Back
+                to Results</button>
             <div id="profile-container">
                 <!-- Populated by JS -->
             </div>
@@ -221,46 +240,230 @@
 
         <!-- ================= USER DASHBOARD VIEW ================= -->
         <section id="view-dashboard" class="view container section">
-            <h2>Welcome back, <span id="dash-user-name">User</span></h2>
-            <div class="dash-grid mt-4">
-                <div class="dash-card">
-                    <h3>Active Requests</h3>
-                    <div id="dash-active-requests">
-                        <!-- Populated by JS -->
-                    </div>
-                </div>
-                <div class="dash-card">
-                    <h3>Safety & Trust Center</h3>
-                    <ul class="trust-list">
-                        <li><i data-lucide="shield-check"></i> All providers are verified</li>
-                        <li><i data-lucide="lock"></i> Secure communication</li>
-                        <li><i data-lucide="alert-triangle"></i> Report an issue</li>
-                    </ul>
-                    <p class="text-small text-muted mt-2">LocalFix helps discover providers. Always verify identity before allowing access to property.</p>
-                </div>
-            </div>
+            <div id="dashboard-root"></div>
         </section>
 
         <!-- ================= LOGIN / SIGNUP VIEW ================= -->
         <section id="view-login" class="view container section">
             <div class="auth-container">
-                <h2>Welcome to LocalFix</h2>
-                <div class="auth-tabs">
-                    <button class="tab active" onclick="app.switchAuthTab('customer')">Customer</button>
-                    <button class="tab" onclick="app.switchAuthTab('provider')">Provider</button>
+                <div class="auth-head">
+                    <h2 id="auth-title">Welcome back to LocalFix</h2>
+                    <p class="text-muted text-small" id="auth-subtitle">Log in to track your service requests.</p>
                 </div>
-                <form id="login-form" onsubmit="app.handleLogin(event)">
+
+                <div class="auth-tabs" id="auth-role-tabs">
+                    <button type="button" class="tab active" data-role="customer"
+                        onclick="app.switchAuthTab('customer')">Customer</button>
+                    <button type="button" class="tab" data-role="provider"
+                        onclick="app.switchAuthTab('provider')">Provider</button>
+                </div>
+
+                <div class="auth-alert" id="auth-alert"></div>
+
+                <!-- ---------- LOGIN FORM ---------- -->
+                <form id="login-form" class="auth-form active" onsubmit="app.handleLogin(event)" novalidate>
                     <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" required placeholder="demo@localfix.com">
+                        <label for="login-email">Email address</label>
+                        <input type="email" id="login-email" autocomplete="email" placeholder="you@example.com">
+                        <span class="field-error" id="login-email-error"></span>
                     </div>
                     <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" required placeholder="••••••••">
+                        <label for="login-password">Password</label>
+                        <div class="input-wrap">
+                            <input type="password" id="login-password" autocomplete="current-password"
+                                placeholder="Your password">
+                            <button type="button" class="pw-toggle"
+                                onclick="app.togglePassword('login-password', this)">Show</button>
+                        </div>
+                        <span class="field-error" id="login-password-error"></span>
                     </div>
-                    <button type="submit" class="btn btn-primary w-100">Login (Demo)</button>
+                    <div class="auth-row">
+                        <label class="checkbox-label"><input type="checkbox" id="login-remember" checked> Keep me signed
+                            in</label>
+                        <a href="#" onclick="app.forgotPassword(event)">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Log in</button>
+                    <p class="auth-switch">New to LocalFix? <a href="#"
+                            onclick="app.switchAuthMode('signup', event)">Create an account</a></p>
+                    <div class="demo-creds">
+                        <strong>Demo accounts</strong>
+                        <span>Customer &mdash; demo@localfix.com / demo1234</span>
+                        <span>Professional &mdash; pro@localfix.com / pro12345</span>
+                        <span>Owner console &mdash; owner@localfix.com / owner1234</span>
+                    </div>
                 </form>
-                <p class="text-center mt-2 text-muted">Use any email/password for this demo.</p>
+
+                <!-- ---------- SIGNUP FORM ---------- -->
+                <form id="signup-form" class="auth-form" onsubmit="app.handleSignup(event)" novalidate>
+                    <div class="form-group">
+                        <label for="signup-name">Full name</label>
+                        <input type="text" id="signup-name" autocomplete="name" placeholder="Aditya Wankhede">
+                        <span class="field-error" id="signup-name-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email">Email address</label>
+                        <input type="email" id="signup-email" autocomplete="email" placeholder="you&me.com">
+                        <span class="field-error" id="signup-email-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-phone">Phone number</label>
+                        <input type="tel" id="signup-phone" autocomplete="tel" placeholder="10-digit mobile number">
+                        <span class="field-error" id="signup-phone-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <div class="input-wrap">
+                            <input type="password" id="signup-password" autocomplete="new-password"
+                                placeholder="At least 8 characters" oninput="app.updatePasswordMeter(this.value)">
+                            <button type="button" class="pw-toggle"
+                                onclick="app.togglePassword('signup-password', this)">Show</button>
+                        </div>
+                        <div class="pw-meter"><span id="pw-meter-bar"></span></div>
+                        <span class="pw-hint text-small text-muted" id="pw-meter-label">Use 8+ characters with letters
+                            and numbers.</span>
+                        <span class="field-error" id="signup-password-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-confirm">Confirm password</label>
+                        <input type="password" id="signup-confirm" autocomplete="new-password"
+                            placeholder="Re-enter password">
+                        <span class="field-error" id="signup-confirm-error"></span>
+                    </div>
+                    <label class="checkbox-label"><input type="checkbox" id="signup-terms"> I agree to the Terms of
+                        Service and Privacy Policy</label>
+                    <span class="field-error" id="signup-terms-error"></span>
+                    <button type="submit" class="btn btn-primary w-100 mt-4">Create account</button>
+                    <div class="provider-notice" id="signup-provider-notice">
+                        <i data-lucide="briefcase"></i>
+                        <div>
+                            <strong>Signing up as a provider?</strong>
+                            <p class="text-small text-muted">Use the full join form so your services appear in search
+                                results.</p>
+                            <button type="button" class="btn btn-outline btn-sm mt-2"
+                                onclick="app.navigate('provider-onboarding')">Open provider join form</button>
+                        </div>
+                    </div>
+                    <p class="auth-switch">Already have an account? <a href="#"
+                            onclick="app.switchAuthMode('login', event)">Log in</a></p>
+                </form>
+            </div>
+        </section>
+
+        <!-- ================= PROVIDER ONBOARDING VIEW ================= -->
+        <section id="view-provider-onboarding" class="view container section">
+            <div class="onboard-wrap">
+                <div class="onboard-intro">
+                    <h2>Become a LocalFix provider</h2>
+                    <p class="text-muted mt-2">Create your provider account and your listing goes live in search
+                        instantly.</p>
+                    <ul class="trust-list mt-4">
+                        <li><i data-lucide="search"></i> Get discovered by customers nearby</li>
+                        <li><i data-lucide="badge-check"></i> Build trust with ratings and reviews</li>
+                        <li><i data-lucide="wallet"></i> Set your own hourly rate</li>
+                    </ul>
+                </div>
+
+                <div class="auth-container onboard-card">
+                    <h3>Provider sign up</h3>
+                    <div class="auth-alert" id="onboard-alert"></div>
+                    <form id="provider-form" onsubmit="app.handleProviderJoin(event)" novalidate>
+                        <div class="form-group">
+                            <label for="pj-name">Business or your name</label>
+                            <input type="text" id="pj-name" placeholder="e.g. Aditya is the one U need ('_')">
+                            <span class="field-error" id="pj-name-error"></span>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pj-email">Email address</label>
+                                <input type="email" id="pj-email" placeholder="you&me.com">
+                                <span class="field-error" id="pj-email-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="pj-phone">Phone number</label>
+                                <input type="tel" id="pj-phone" placeholder="10-digit mobile number">
+                                <span class="field-error" id="pj-phone-error"></span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pj-password">Password</label>
+                                <div class="input-wrap">
+                                    <input type="password" id="pj-password" placeholder="At least 8 characters">
+                                    <button type="button" class="pw-toggle"
+                                        onclick="app.togglePassword('pj-password', this)">Show</button>
+                                </div>
+                                <span class="field-error" id="pj-password-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="pj-confirm">Confirm password</label>
+                                <input type="password" id="pj-confirm" placeholder="Re-enter password">
+                                <span class="field-error" id="pj-confirm-error"></span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pj-category">Service category</label>
+                                <select id="pj-category">
+                                    <option value="">Select a category</option>
+                                </select>
+                                <span class="field-error" id="pj-category-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="pj-city">City or locality</label>
+                                <input type="text" id="pj-city" placeholder="Jalgaon">
+                                <span class="field-error" id="pj-city-error"></span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pj-price">Rate per hour (&#8377;)</label>
+                                <input type="number" id="pj-price" min="0" step="10" placeholder="500">
+                                <span class="field-error" id="pj-price-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="pj-experience">Years of experience</label>
+                                <input type="number" id="pj-experience" min="0" max="60" placeholder="5">
+                                <span class="field-error" id="pj-experience-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="pj-distance">Distance from centre (km)</label>
+                                <input type="number" id="pj-distance" min="0" max="50" step="0.1" placeholder="3.5">
+                                <span class="field-error" id="pj-distance-error"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pj-desc">Short headline</label>
+                            <input type="text" id="pj-desc" maxlength="120"
+                                placeholder="Reliable wiring and repair work for homes">
+                            <span class="field-error" id="pj-desc-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="pj-about">About your work</label>
+                            <textarea id="pj-about" rows="3"
+                                placeholder="Tell customers about your experience and what you specialise in."></textarea>
+                            <span class="field-error" id="pj-about-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="pj-skills">Skills (comma separated)</label>
+                            <input type="text" id="pj-skills" placeholder="Rewiring, Fan installation, Troubleshooting">
+                            <span class="field-error" id="pj-skills-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="pj-availability">Availability</label>
+                            <select id="pj-availability">
+                                <option value="Available Today">Available Today</option>
+                                <option value="Available Tomorrow">Available Tomorrow</option>
+                                <option value="Available This Week">Available This Week</option>
+                            </select>
+                        </div>
+                        <label class="checkbox-label"><input type="checkbox" id="pj-terms"> I confirm my details are
+                            accurate and accept the provider terms</label>
+                        <span class="field-error" id="pj-terms-error"></span>
+                        <button type="submit" class="btn btn-primary w-100 mt-4">Join as a provider</button>
+                        <p class="auth-switch">Already a provider? <a href="#"
+                                onclick="app.openAuth('provider', event)">Log in here</a></p>
+                    </form>
+                </div>
             </div>
         </section>
 
@@ -271,7 +474,7 @@
         <div class="container footer-container">
             <div class="footer-col">
                 <h3>LocalFix</h3>
-                <p>This site is created by Aditya and his teammates Ziyan and  Ashwini </p>
+                <p>This site is created by Aditya and his teammates Ziyan and Ashwini </p>
             </div>
             <div class="footer-col">
                 <h4>Platform</h4>
@@ -286,82 +489,48 @@
             </div>
         </div>
         <br>
-   <div style="text-align: center;">
+        <div style="text-align: center;">
 
-       <p class="copyright">
-           © 2026 LocalFix. All Rights Reserved. Created and Owned by Aditya, Ashwini & Ziyan.
-        </p>
-    </div>     
+            <p class="copyright">
+                © 2026 LocalFix. All Rights Reserved. Created and Owned by Aditya, Ashwini & Ziyan.
+            </p>
+        </div>
 
 
         <br>
-        
+
         <div class="footer-credit" style="text-align: center;">
-    Made with ❤️ and ☕ in India
-</div>
+            Made with ❤️ and ☕ in India
+        </div>
     </footer>
 
     <!-- ================= MODALS & TOASTS ================= -->
-    
-    <!-- Booking Multi-step Modal -->
+
+    <!-- Booking + Payment Modal (rendered by JS) -->
     <div class="modal-overlay" id="booking-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="booking-title">Request Service</h3>
-                <button class="icon-btn" onclick="app.closeModal('booking-modal')"><i data-lucide="x"></i></button>
-            </div>
-            <div class="modal-body">
-                <!-- Step 1: Time -->
-                <div class="booking-step active" id="step-1">
-                    <h4>Step 1: When do you need this?</h4>
-                    <input type="date" id="book-date" class="modal-input mt-2">
-                    <select id="book-time" class="modal-input mt-2">
-                        <option>Morning (8 AM - 12 PM)</option>
-                        <option>Afternoon (12 PM - 4 PM)</option>
-                        <option>Evening (4 PM - 8 PM)</option>
-                    </select>
-                </div>
-                <!-- Step 2: Details -->
-                <div class="booking-step" id="step-2">
-                    <h4>Step 2: Describe the problem</h4>
-                    <textarea id="book-desc" class="modal-input mt-2" rows="4" placeholder="E.g., Kitchen sink is leaking rapidly..."></textarea>
-                    <input type="text" id="book-address" class="modal-input mt-2" placeholder="Full Address">
-                </div>
-                <!-- Step 3: Confirm -->
-                <div class="booking-step" id="step-3">
-                    <h4>Step 3: Review & Confirm</h4>
-                    <div class="review-box mt-2">
-                        <p><strong>Provider:</strong> <span id="review-provider"></span></p>
-                        <p><strong>Date:</strong> <span id="review-date"></span></p>
-                        <p><strong>Address:</strong> <span id="review-address"></span></p>
-                    </div>
-                </div>
-                <!-- Success -->
-                <div class="booking-step text-center" id="step-success">
-                    <i data-lucide="check-circle" class="success-icon"></i>
-                    <h4>Request Submitted!</h4>
-                    <p class="text-muted">Your request ID is <strong id="req-id"></strong>. You can track this in your dashboard.</p>
-                </div>
-            </div>
-            <div class="modal-footer" id="modal-footer">
-                <button class="btn btn-outline" id="btn-prev" onclick="app.bookingPrev()">Back</button>
-                <button class="btn btn-primary" id="btn-next" onclick="app.bookingNext()">Next</button>
-            </div>
-        </div>
+        <div class="modal-content booking-modal" id="booking-modal-inner"></div>
+    </div>
+
+    <!-- Invoice Modal (rendered by JS) -->
+    <div class="modal-overlay" id="invoice-modal">
+        <div class="modal-content invoice-modal" id="invoice-modal-inner"></div>
     </div>
 
     <!-- Toast Notification Container -->
     <div id="toast-container"></div>
-<script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-<!-- Google Translate container -->
-<div id="google_translate_element"></div>
+    <!-- Google Translate container -->
 
-<!-- Google Translate -->
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <div id="google_translate_element"></div>
 
-<!-- Your JavaScript -->
-<script src="script.js"></script>
+
+    <!-- Google Translate -->
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Your JavaScript -->
+    <script src="script.js"></script>
 </body>
+
 </html>
 
