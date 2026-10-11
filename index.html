@@ -34,7 +34,7 @@
             <nav class="nav-links">
                 <a href="#" onclick="app.navigate('home')">Home</a>
                 <a href="#" onclick="app.navigate('search')">Find Services</a>
-                <a href="#how-it-works">How It Works</a>
+                <a href="#how-it-works" onclick="app.navigate('#how-it-works')">How It Works</a>
                 <a href="#" onclick="app.navigate('provider-onboarding')">Become a Provider</a>
             </nav>
 
@@ -62,6 +62,7 @@
                 <button class="btn btn-outline" id="nav-logout-btn" style="display:none"
                     onclick="app.logout()">Logout</button>
             </div>
+
 
             <!-- Mobile Hamburger -->
             <button class="mobile-menu-btn" onclick="app.toggleMobileMenu()">
@@ -176,6 +177,39 @@
                     </div>
                 </div>
             </div>
+            <!-- How It Works Section -->
+    <section class="container section" id="how-it-works">
+        <h2 class="section-title">How LocalFix Works</h2>
+        <p class="section-subtitle">
+            Find reliable local professionals in four simple steps.
+        </p>
+    
+        <div class="how-it-works-grid">
+            <div class="how-step">
+                <div class="step-number">01</div>
+                <h3>Search for a Service</h3>
+                <p>Select the service you need and enter your city or locality.</p>
+            </div>
+    
+            <div class="how-step">
+                <div class="step-number">02</div>
+                <h3>Compare Professionals</h3>
+                <p>Explore available providers and compare their ratings, prices, and distance.</p>
+            </div>
+    
+            <div class="how-step">
+                <div class="step-number">03</div>
+                <h3>Choose a Provider</h3>
+                <p>Review provider details and select a professional suitable for your needs.</p>
+            </div>
+    
+            <div class="how-step">
+                <div class="step-number">04</div>
+                <h3>Request a Service</h3>
+                <p>Submit your service request and follow the booking process on LocalFix.</p>
+            </div>
+        </div>
+    </section>
         </section>
 
         <!-- ================= SEARCH RESULTS VIEW ================= -->
@@ -209,9 +243,9 @@
                     </div>
                     <div class="filter-group">
                         <label>Max hourly rate (&#8377;)</label>
-                        <input type="range" id="filter-price" min="50" max="3000" step="50" value="3000"
+                        <input type="range" id="filter-price" min="50" max="70000000" step="50" value="70000000"
                             oninput="document.getElementById('price-val').innerText='\u20b9'+this.value; app.renderSearchResults()">
-                        <span id="price-val">&#8377;3000</span>
+                        <span id="price-val">&#8377;70000000</span>
                     </div>
                     <div class="filter-group">
                         <label>Minimum Rating</label>
@@ -264,7 +298,7 @@
                 <form id="login-form" class="auth-form active" onsubmit="app.handleLogin(event)" novalidate>
                     <div class="form-group">
                         <label for="login-email">Email address</label>
-                        <input type="email" id="login-email" autocomplete="email" placeholder="aditya@example.com">
+                        <input type="email" id="login-email" autocomplete="email" placeholder="you@example.com">
                         <span class="field-error" id="login-email-error"></span>
                     </div>
                     <div class="form-group">
@@ -302,7 +336,7 @@
                     </div>
                     <div class="form-group">
                         <label for="signup-email">Email address</label>
-                        <input type="email" id="signup-email" autocomplete="email" placeholder="aditya@gmail.com">
+                        <input type="email" id="signup-email" autocomplete="email" placeholder="you&me.com">
                         <span class="field-error" id="signup-email-error"></span>
                     </div>
                     <div class="form-group">
@@ -369,13 +403,13 @@
                     <form id="provider-form" onsubmit="app.handleProviderJoin(event)" novalidate>
                         <div class="form-group">
                             <label for="pj-name">Business or your name</label>
-                            <input type="text" id="pj-name" placeholder="e.g. localfix">
+                            <input type="text" id="pj-name" placeholder="e.g. Aditya Gautam Wankhede">
                             <span class="field-error" id="pj-name-error"></span>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="pj-email">Email address</label>
-                                <input type="email" id="pj-email" placeholder="aditya@gmail.com">
+                                <input type="email" id="pj-email" placeholder="you@gmail.com">
                                 <span class="field-error" id="pj-email-error"></span>
                             </div>
                             <div class="form-group">
@@ -474,18 +508,14 @@
         <div class="container footer-container">
             <div class="footer-col">
                 <h3>LocalFix</h3>
-                <p>This site is created by Aditya and Ziyan and Ashwini </p>
+                <p>This site is created by Aditya and his teammates Ziyan and Ashwini </p>
             </div>
-            <div class="footer-col">
-                <h4>Platform</h4>
-                <a href="#">Find a Service</a>
-                <a href="#">Become a Provider</a>
-                <a href="#">Trust & Safety</a>
-            </div>
-            <div class="footer-col">
+            <div></div>
+                
+            <div class="footer-col" >
                 <h4>Legal</h4>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
             </div>
         </div>
         <br>
