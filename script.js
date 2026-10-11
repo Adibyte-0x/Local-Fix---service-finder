@@ -67,6 +67,7 @@ const mockServices = [
     { id: 'cleaning', name: 'Cleaning', icon: 'sparkles', desc: 'Home and deep cleaning.' }
 ];
 
+
 const mockProviders = [
     {
         id: 'p1', name: 'Jhatkaa Electrical Services', category: 'Electrician',
@@ -77,7 +78,7 @@ const mockProviders = [
         skills: ['Panel Upgrades', 'Rewiring', 'Troubleshooting']
     },
     {
-        id: 'p2', name: 'Pipejodya Plumbing', category: 'Plumber',
+        id: 'p2', name: 'Piper Plumbing Services', category: 'Plumber',
         rating: 4.5, reviews: 89, experience: 8, distance: 4.1, price: 450,
         verified: true, available: 'Available Tomorrow',
         desc: 'Fast and efficient plumbing solutions for homes and businesses.',
@@ -85,7 +86,7 @@ const mockProviders = [
         skills: ['Leak Repair', 'Drain Cleaning', 'Pipe fitting']
     },
     {
-        id: 'p3', name: 'AC ki Tesi AC Services', category: 'AC Repair',
+        id: 'p3', name: 'Apex Cooling & AC Services', category: 'AC Repair',
         rating: 4.9, reviews: 210, experience: 12, distance: 6.0, price: 1200,
         verified: true, available: 'Available Today',
         desc: 'Keep your home cool with our expert AC repair and servicing.',
@@ -93,76 +94,76 @@ const mockProviders = [
         skills: ['AC Gas Refill', 'Filter Cleaning', 'Compressor Repair']
     },
     {
-        id: 'p4', name: 'Swachh Bharat Cleaners', category: 'Cleaning',
+        id: 'p4', name: 'Swachh Bharat Cleaning Services', category: 'Cleaning',
         rating: 4.2, reviews: 45, experience: 3, distance: 1.2, price: 350,
         verified: false, available: 'Available Tomorrow',
         desc: 'Professional eco-friendly cleaning services for your home.',
-        about: 'A startup cleaning service dedicated to spotless environments.',
+        about: 'A cleaning service dedicated to maintaining clean and hygienic environments.',
         skills: ['Deep Cleaning', 'Dusting', 'Floor polishing']
     },
     {
-        id: 'p5', name: 'Sutari Carpenter', category: 'Carpenter',
+        id: 'p5', name: 'Sutari Carpentry Services', category: 'Carpenter',
         rating: 4.4, reviews: 48, experience: 5, distance: 3.2, price: 500,
         verified: false, available: 'Available Tomorrow',
-        desc: 'Professional eco-friendly carpenter services for you.',
-        about: 'A startup  service dedicated to spotless work.',
-        skills: ['Wood shaping', 'Wood cuting', 'Carpenter ITI']
+        desc: 'Professional carpentry services for residential and commercial needs.',
+        about: 'A carpentry service focused on reliable workmanship and quality wooden fixtures.',
+        skills: ['Wood shaping', 'Wood cutting', 'Carpentry']
     },
     {
-        id: 'p6', name: 'Ziyan Khan The Mechanic', category: 'Mechanic',
+        id: 'p6', name: 'Ziyan Khan Automotive Services', category: 'Mechanic',
         rating: 5.0, reviews: 50, experience: 2, distance: 0, price: 70000000,
         verified: false, available: 'Available Now',
-        desc: 'Dengerous car and bike service for you !',
-        about: 'Treats your vehicle as a patient, vehicles are more Valuable for him than human .',
-        skills: ['Online Mechanic course', 'Repairing Vision', 'Killer Smile']
+        desc: 'Professional vehicle maintenance and repair services for cars and motorcycles.',
+        about: 'Dedicated to vehicle diagnostics, maintenance, and dependable automotive repair.',
+        skills: ['Automotive Maintenance', 'Vehicle Diagnostics', 'Mechanical Repairs']
     },
     {
-        id: 'p7', name: 'Shubham Bhaiya zanke', category: 'Electrician',
+        id: 'p7', name: 'Shubham Zanke Electrical Services', category: 'Electrician',
         rating: 4.69, reviews: 69, experience: 19, distance: "near by a ", price: 150,
         verified: false, available: 'Available yesterday',
-        desc: 'current flows through his veins instead of blood .',
-        about: 'he is from japan so he can make electricity by walking .',
-        skills: ['Ohms law', 'can light buld by putting it in mouth', 'BEE-pass']
+        desc: 'Electrical installation, maintenance, and troubleshooting services.',
+        about: 'Experienced electrical service provider specializing in residential electrical work.',
+        skills: ['Electrical Fundamentals', 'Lighting Installation', 'Electrical Maintenance']
     },
     {
-        id: 'p8', name: 'Saar-thak the Plumber', category: 'Plumber',
+        id: 'p8', name: 'Saarthak Plumbing Solutions', category: 'Plumber',
         rating: 3.14, reviews: 8, experience: 8, distance: 8, price: 8,
         verified: true, available: 'Available today',
-        desc: 'he used to do plumbing in extream situation, even if he have physics backlog !',
-        about: 'he solve water blockage cause he cant fix a blockage from amravati',
-        skills: ['pw plumbing certificate', 'tap fitting', '1st year all clear']
+        desc: 'Plumbing services for routine maintenance and challenging repair requirements.',
+        about: 'Provides plumbing maintenance, drainage solutions, and water system repairs.',
+        skills: ['Plumbing Fundamentals', 'Tap Fitting', 'Pipe Maintenance']
     },
     {
-        id: 'p9', name: 'Tale Tejaswi carpenter ', category: 'Carpenter',
+        id: 'p9', name: 'Tejaswi Carpentry & Woodworks', category: 'Carpenter',
         rating: 4.5, reviews: 7, experience: 3, distance: 4, price: 60,
         verified: true, available: 'Available today',
-        desc: 'Carpenter is not him , he is carpenter',
-        about: 'can create a iron man suit with wood , so we can call him tony tale',
-        skills: ['wood job', 'wood work', 'bas itna hi hai']
+        desc: 'Custom carpentry and woodworking services for residential projects.',
+        about: 'Specializes in creative woodworking, custom furniture, and wooden installations.',
+        skills: ['Woodworking', 'Furniture Repair', 'Custom Woodwork']
     },
     {
-        id: 'p10', name: 'Umar - tere naam Ac service', category: 'AC Repair',
+        id: 'p10', name: 'Umar Cooling & AC Solutions', category: 'AC Repair',
         rating: 4.8, reviews: 67, experience: 8, distance: 9, price: 1100,
         verified: true, available: 'Available today',
-        desc: 'Your Ac needs him',
-        about: 'he is Sallu bhois fan but can  repair Ac',
-        skills: ['Ac repair', 'fook marke filter saaf karna', 'Ac_la toh ham bhi rakhte hai..']
+        desc: 'Reliable air conditioning repair, maintenance, and servicing solutions.',
+        about: 'Provides AC diagnostics, cooling performance optimization, and routine maintenance.',
+        skills: ['AC Repair', 'Air Filter Maintenance', 'AC Servicing']
     },
     {
-        id: 'p11', name: 'Om  cleaner', category: 'Cleaning',
+        id: 'p11', name: 'Om Professional Cleaning Services', category: 'Cleaning',
         rating: 4.8, reviews: 47, experience: 8, distance: 5, price: 700,
         verified: true, available: 'Available today',
-        desc: 'clean room like a pro ! like you can see your face on tiles',
-        about: 'no room in hostel but can clean yours',
-        skills: ['yt jhadu tutorial', 'yt pochha tutorial', 'thats it']
+        desc: 'Professional room cleaning and floor care services.',
+        about: 'Focused on maintaining clean, organized, and hygienic living spaces.',
+        skills: ['Floor Cleaning', 'Mopping and Dusting', 'Room Sanitization']
     },
     {
-        id: 'p12', name: 'shivro ff cleaner', category: 'Cleaning',
+        id: 'p12', name: 'Shivro Facility Cleaning Services', category: 'Cleaning',
         rating: 4.8, reviews: 47, experience: 8, distance: 5, price: 700,
         verified: true, available: 'Available today',
-        desc: 'khelega free fire !',
-        about: 'can clean your room while playing free fire',
-        skills: ['One tap head', '1v4 pochha', 'Custom room cleaning']
+        desc: 'Reliable cleaning services for residential spaces and everyday maintenance.',
+        about: 'Provides convenient cleaning solutions with a focus on cleanliness and customer satisfaction.',
+        skills: ['Residential Cleaning', 'Floor Maintenance', 'General Housekeeping']
     }
 ];
 
@@ -1933,4 +1934,3 @@ const app = {
 };
 
 window.onload = () => app.init();
-
